@@ -71,8 +71,12 @@ subprojects {
 
     dependencies {
         val implementation by configurations
+        val cloudstream by configurations
 
-        implementation("com.github.recloudstream.cloudstream:library:-SNAPSHOT")
+        // CloudStream API via the plugin's own mechanism: downloads classes.jar
+        // from the pre-release (deterministic, verified). The jitpack
+        // "library:-SNAPSHOT" artifact is currently resolving to an empty stub.
+        cloudstream("com.github.recloudstream.cloudstream:library:pre-release")
 
         // These dependencies can include any of those which are added by the app,
         // but you don't need to include any of them if you don't need them.
