@@ -69,6 +69,13 @@ subprojects {
         }
     }
 
+    // Workaround: EnsureJarCompatibilityTask is broken in the current gradle plugin
+    // -SNAPSHOT (setStandardOutput dispatch failure, even as a no-op finalizer).
+    // It only validates cross-platform JARs; we do not build those (isCrossPlatform=false).
+    tasks.named("ensureJarCompatibility") {
+        enabled = false
+    }
+
     dependencies {
         val implementation by configurations
         val cloudstream by configurations
