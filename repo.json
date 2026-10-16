@@ -2,7 +2,19 @@
   "name": "Cloud Control Repo",
   "author": "Onedore7",
   "version": 1,
-  "extensions": [],
+  "extensions": [
+    {
+      "name": "Cloud Control Provider",
+      "id": "CloudControlProvider",
+      "version": 1,
+      "lang": "en",
+      "isNsfw": false,
+      "hasSettings": false,
+      "types": ["Movie", "TvSeries"],
+      "apkUrl": "https://raw.githubusercontent.com/Onedore7/cloud-control-plane/main/build/outputs/CloudControlProvider.cs3",
+      "iconUrl": "https://raw.githubusercontent.com/Onedore7/cloud-control-plane/main/icon.png",
+      "description": "Dynamic control plane extension linked to Vercel."
+    }
+  ],
   "pluginLists": []
 }
-
