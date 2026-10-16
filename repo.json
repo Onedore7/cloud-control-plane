@@ -4,6 +4,6 @@
   "iconUrl": "https://www.google.com/s2/favicons?domain=archive.org&sz=128",
   "manifestVersion": 1,
   "pluginLists": [
-    "https://raw.githubusercontent.com/Onedore7/cloud-control-plane/refs/heads/main/plugins-v3.json"
+    "https://raw.githubusercontent.com/Onedore7/cloud-control-plane/main/plugins-v2.json"
   ]
 }
