@@ -1,9 +1,9 @@
 {
   "name": "Cloud Control Repo",
-  "description": "CloudStream extensions by Onedore7 \u2014 public-domain archive.org provider.",
+  "description": "CloudStream extensions by Onedore7",
   "iconUrl": "https://www.google.com/s2/favicons?domain=archive.org&sz=128",
   "manifestVersion": 1,
   "pluginLists": [
-    "https://raw.githubusercontent.com/Onedore7/cloud-control-plane/main/plugins.json"
+    "https://raw.githubusercontent.com/Onedore7/cloud-control-plane/main/plugins-v2.json"
   ]
 }
