@@ -1,8 +1,9 @@
 {
-  "name": "Cloud Control Repo TEST",
-  "description": "TEST pointing to Phisher plugins",
+  "name": "CloudControl-MARKER-V3",
+  "description": "Marker test v3",
+  "iconUrl": "https://www.google.com/s2/favicons?domain=archive.org&sz=128",
   "manifestVersion": 1,
   "pluginLists": [
-    "https://raw.githubusercontent.com/phisher98/cloudstream-extensions-phisher/refs/heads/builds/plugins.json"
+    "https://raw.githubusercontent.com/Onedore7/cloud-control-plane/main/plugins-v2.json"
   ]
 }
