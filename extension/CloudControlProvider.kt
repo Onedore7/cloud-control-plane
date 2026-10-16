@@ -25,7 +25,7 @@ class CloudControlProvider : MainAPI() {
     override val supportedTypes = setOf(TvType.Movie, TvType.TvSeries)
 
     // Gantikan URL di bawah dengan URL Vercel live kau (contoh: https://cloud-control-plane-xxx.vercel.app/api/rules)
-    private val remoteConfigUrl = "https://<nama-projek-kau>.vercel.app/api/rules"
+    private val remoteConfigUrl = "https://cloud-control-plane.vercel.app/api/rules"
     
     @Volatile
     private var cachedSelectors: DynamicSelectors? = null
