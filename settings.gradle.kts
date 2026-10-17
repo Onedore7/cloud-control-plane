@@ -9,7 +9,6 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
-    // Polisi ditukar ke PREFER_SETTINGS untuk elak crash
     repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
         google()
@@ -20,10 +19,21 @@ dependencyResolutionManagement {
 
 rootProject.name = "CloudControlPlaneExtensions"
 
-rootDir.listFiles()?.forEach { pluginFolder ->
-    if (pluginFolder.isDirectory && !pluginFolder.name.startsWith(".")) {
-        if (File(pluginFolder, "build.gradle.kts").exists()) {
-            include(":${pluginFolder.name}")
+// --- Enjin Deep-Search (Depth 1 & Depth 2) ---
+rootDir.listFiles()?.forEach { dir ->
+    if (dir.isDirectory && !dir.name.startsWith(".")) {
+        // Semak Depth 1 (Level luar)
+        if (File(dir, "build.gradle.kts").exists()) {
+            include(":${dir.name}")
+        } else {
+            // Semak Depth 2 (Level dalam folder kategori macam /Anime, /English)
+            dir.listFiles()?.forEach { subDir ->
+                if (subDir.isDirectory && !subDir.name.startsWith(".")) {
+                    if (File(subDir, "build.gradle.kts").exists()) {
+                        include(":${dir.name}:${subDir.name}")
+                    }
+                }
+            }
         }
     }
 }
