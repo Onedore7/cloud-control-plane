@@ -2,9 +2,8 @@ name: Auto Sync Phisher Upstream
 
 on:
   schedule:
-    # Jalan automatik setiap hari jam 12 tengah malam UTC (8 pagi waktu Sarawak)
     - cron: '0 0 * * *'
-  workflow_dispatch: # Membenarkan trigger manual dari tab 'Actions'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -23,25 +22,21 @@ jobs:
         run: |
           git clone https://github.com/phisher98/cloudstream-extensions-phisher.git /tmp/phisher-source
 
-      - name: Execute Rsync (Data Injection)
+      - name: Execute Rsync (Safe Data Injection)
         run: |
-          # Sync semua sub-folder dari repo Phisher ke root/extensions folder kau.
-          # Kita exclude core files supaya tak timbul dependency conflict dengan Gradle kau.
-          rsync -av --exclude='.git' \
+          rsync -av --ignore-existing \
+                    --exclude='.git' \
                     --exclude='.github' \
                     --exclude='build.gradle.kts' \
                     --exclude='settings.gradle.kts' \
                     --exclude='README.md' \
                     --exclude='.gitignore' \
                     /tmp/phisher-source/ ./
-          
-          # Nota Asree: Kalau repo kau guna folder khusus untuk letak provider (contoh: ./extensions),
-          # tukar './' kat hujung command atas ni ke './extensions/'
 
       - name: Commit & Push Modular Updates
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "feat(auto-sync): inject latest movie & channel providers from phisher"
+          commit_message: "feat(auto-sync): inject all phisher providers without overriding existing code"
           branch: main
           file_pattern: '.'
           
